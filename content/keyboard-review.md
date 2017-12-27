@@ -9,5 +9,7 @@ Category: Review
 ### Sub-sub title.
 
 ```
-ls -al 
+(venv) Prashants-MBP:pt247.github.io prashant$ ls -al .gitignore
+-rw-r--r--  1 prashant  staff  1352 27 Dec 19:10 .gitignore
+(venv) Prashants-MBP:pt247.github.io prashant$
 ```
