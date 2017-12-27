@@ -12,9 +12,9 @@ FTP_HOST=localhost
 FTP_USER=anonymous
 FTP_TARGET_DIR=/
 
-SSH_HOST=prashanttiwari.com
+SSH_HOST=localhost
 SSH_PORT=22
-SSH_USER=prashant
+SSH_USER=root
 SSH_TARGET_DIR=/var/www
 
 S3_BUCKET=my_s3_bucket
