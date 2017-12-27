@@ -8,4 +8,4 @@ Category: Review
 
 ### Sub-sub title.
 
-Followin is a review of my sixth favorite mechanical keyboard.
+Following is a review of my sixth favorite mechanical keyboard.
