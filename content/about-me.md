@@ -1,13 +1,14 @@
-Title: Life as a creation of my prospective.
-Date: 2017-12-30 10:20
+Title: Life as a creation of ones own prospective
+Date: 2017-12-27 21:00
 Category: About
 
-# Introducing 
+# Self 
 Prashant is a Python developer who is still learning something new about Python every day. 
 In his day job he saves the world be helping a Green-tech startup develop IOT solution for smart battery storage solution.
 
-# More
-More about me coming soon ... 
+# Meetup
+[PyData London meetup](https://www.meetup.com/PyData-London-Meetup/) has been Prashant's primary goto meetup for a while now. 
+Its all about building data science community in and arround London. Quite popular and seats about 200 people every month. Its like a mini confrence every month. 
 
 # Social:
 
