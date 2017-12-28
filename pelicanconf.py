@@ -47,4 +47,3 @@ ENCRYPT_CONTENT = {
 }
 
 DEFAULT_DATE = 'fs'
-
