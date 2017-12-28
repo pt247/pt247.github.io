@@ -45,3 +45,6 @@ ENCRYPT_CONTENT = {
     'title_prefix': '[Encrypted]',
     'summary': 'This content is encrypted.'
 }
+
+DEFAULT_DATE = 'fs'
+

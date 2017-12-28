@@ -1,5 +1,4 @@
 Title: Life as a creation of ones own prospective
-Date: 2017-12-27 21:00
 Category: About
 
 # Self 
