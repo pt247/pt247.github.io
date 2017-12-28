@@ -1,5 +1,4 @@
 Title: Using Pelican encrypt content effectively with GitHubPages
-Date: 2017-12-27 21:00
 Category: Blogs
 
 # About
