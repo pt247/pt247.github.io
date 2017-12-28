@@ -1,5 +1,7 @@
 Title: Life as a creation of ones own prospective
 Category: About
+URL:
+save_as: index.html
 
 # Self 
 Prashant is a Python developer who is still learning something new about Python every day. 
