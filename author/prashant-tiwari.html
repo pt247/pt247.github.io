@@ -15,78 +15,127 @@
                 <h1><a href="/">Blogs and thoughts. </a></h1>
                 <nav><ul>
                     <li><a href="/category/about.html">About</a></li>
-                    <li><a href="/category/blog.html">Blog</a></li>
                     <li><a href="/category/review.html">Review</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/my-first-blog.html">My First Blog</a></h1>
+                    <h1 class="entry-title"><a href="/machine-learning-basics.html">[Encrypted] Machine learning basics</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-12-30T10:20:00+01:00">
-                Published: Sat 30 December 2017
+        <abbr class="published" title="2017-12-28T09:20:00+01:00">
+                Published: Thu 28 December 2017
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
         </address>
-<p>In <a href="/category/blog.html">Blog</a>.</p>
+<p>In <a href="/category/review.html">Review</a>.</p>
 
-</footer><!-- /.post-info --><h1>Followin is a blog of my sixth favorite mechanical keyboard.</h1>
-<h2>Followin is a blog of my sixth favorite mechanical keyboard.</h2>
-<h3>some text.</h3>
-<div class="highlight"><pre><span></span>Everything up-to-date
-</pre></div>                </article>
+</footer><!-- /.post-info --><div id="pec-encrypted-content" style="display:none">r0k8XKtbnK/fMTvLo9krog==;KerGJ1njr4yeehD0dyzW3Jxw4ZS61PM2ey4/b3ACQWTCn89kawyNwrg6I7NFP+/HGcos1tfbWEJ9n2+arFGHM5LwV53IVWRkv9nZzGaA9oOVDAxYJi+oHrJHfdkdJGA8ldwwmYAgMIeQUDHGYzpjl1LA0n24ic8tHLVgB4iZkK1hUxvOfjj/MqB984Tj+aLM3SP6PATUdINvfCGx3SHUJBZ0tbW8m6cgd9GBxEu02du+hfS5hy1eKMgNEmEpoILtEihRqAOBddl7leDz1zzj5PPTNKwWcX2hZxq8gRFdRfJ1b61sQF3tQMz8EPD/4mWM30fQ8vXlzU2XmqadPHyHl9J2TuyQaVzQfWgS2HhfMvzUmuu2AnsUEx1jX/Upm7MPMcakpMOY1fO/kcFTjHAWNO4aVqinjmlfN79hjdTc64zIMqbjRqZoTVyWnjOXZTeOk6FJ7hbW9kPR2al+Flr4EQ==;^</div>
+<div id="pec-decrypted-content">
+    <h4><i>This content is encrypted.</i></h4>
+</div>
+
+<form id="pec-decrypt-form">
+    <label for="pec-content-password">Password</label>
+    <input type="password" id="pec-content-password" placeholder="Password" />
+    <button type="button" id="pec-decrypt-content">Decrypt</button>
+</form>
+
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/pad-nopadding.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/md5.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes.js"></script>
+
+
+<script type="text/javascript">
+    (function () {
+        var strip_padding = function (padded_content, padding_char) {
+            /*
+             * Strips the padding character from decrypted content.
+             */
+            for (var i = padded_content.length; i > 0; i--) {
+                if (padded_content[i-1] !== padding_char) {
+                    return padded_content.slice(0, i);
+                }
+            }
+        };
+
+        var decrypt_content = function (password, iv_b64, ciphertext_b64, padding_char) {
+            /*
+             * Decrypts the content from the ciphertext bundle.
+             */
+            var key = CryptoJS.MD5(password),
+                iv = CryptoJS.enc.Base64.parse(iv_b64),
+                ciphertext = CryptoJS.enc.Base64.parse(ciphertext_b64),
+                bundle = {
+                    key: key,
+                    iv: iv,
+                    ciphertext: ciphertext
+                };
+
+            var plaintext = CryptoJS.AES.decrypt(bundle, key, {iv: iv, padding: CryptoJS.pad.NoPadding});
+
+            try {
+                return strip_padding(plaintext.toString(CryptoJS.enc.Utf8), padding_char);
+            }
+            catch (err) {
+                // encoding failed; wrong password
+                return false;
+            }
+        };
+
+        var init_decryptor = function() {
+            var decrypt_btn = document.getElementById('pec-decrypt-content'),
+                password_input = document.getElementById('pec-content-password'),
+                encrypted_content = document.getElementById('pec-encrypted-content'),
+                decrypted_content = document.getElementById('pec-decrypted-content'),
+                decrypt_form = document.getElementById('pec-decrypt-form');
+
+            decrypt_btn.addEventListener('click', function () {
+                // grab the ciphertext bundle
+                var parts = encrypted_content.innerHTML.split(';');
+
+                // decrypt it
+                var content = decrypt_content(
+                    password_input.value,
+                    parts[0],
+                    parts[1],
+                    parts[2]
+                );
+
+                if (content) {
+                    // success; display the decrypted content
+                    decrypted_content.innerHTML = content;
+                    decrypt_form.parentNode.removeChild(decrypt_form);
+                    encrypted_content.parentNode.removeChild(encrypted_content);
+
+                    // any post processing on the decrypted content should be done here
+                }
+                else {
+                    // ¯\_(ツ)_/¯
+                    password_input.value = '';
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', init_decryptor);
+    })();
+</script>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/machine-learning-basics.html" rel="bookmark"
-                           title="Permalink to [Encrypted] Machine learning basics">[Encrypted] Machine learning basics</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-28T09:20:00+01:00">
-                Published: Thu 28 December 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
-        </address>
-<p>In <a href="/category/review.html">Review</a>.</p>
-
-</footer><!-- /.post-info -->                This content is encrypted.
-                <a class="readmore" href="/machine-learning-basics.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/on-going-article.html" rel="bookmark"
-                           title="Permalink to [Encrypted] On going article.">[Encrypted] On going article.</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-28T09:20:00+01:00">
-                Published: Thu 28 December 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
-        </address>
-<p>In <a href="/category/review.html">Review</a>.</p>
-
-</footer><!-- /.post-info -->                This content is encrypted.
-                <a class="readmore" href="/on-going-article.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -111,34 +160,6 @@ In his day job he saves the world be helping a Green-tech startup develop IOT so
 <h1>Meetup</h1>
 <p><a href="https://www.meetup.com/PyData-London-Meetup/">PyData London meetup</a> has been Prashant's primary goto meetup for a while …</p>
                 <a class="readmore" href="/life-as-a-creation-of-ones-own-prospective.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/my-first-review.html" rel="bookmark"
-                           title="Permalink to My First Review">My First Review</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-03T10:20:00+01:00">
-                Published: Sun 03 December 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
-        </address>
-<p>In <a href="/category/review.html">Review</a>.</p>
-
-</footer><!-- /.post-info -->                <h1>Followin is a review of my sixth favorite mechanical keyboard.</h1>
-<h2>Followin is a review of my sixth favorite mechanical keyboard.</h2>
-<h3>Sub-sub title.</h3>
-<div class="highlight"><pre><span></span>(venv) Prashants-MBP:pt247.github.io prashant$ git push
-Everything up-to-date
-(venv) Prashants-MBP:pt247.github.io prashant$
-</pre></div>
-                <a class="readmore" href="/my-first-review.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
