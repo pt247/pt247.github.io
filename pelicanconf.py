@@ -47,3 +47,8 @@ ENCRYPT_CONTENT = {
 }
 
 DEFAULT_DATE = 'fs'
+STATIC_PATHS = ['images', 'pdfs']
+# ARTICAL_PATHS = ['pages']
+# PAGE_PATHS = ['pages']
+DISPLAY_PAGES_ON_MENU = False
+

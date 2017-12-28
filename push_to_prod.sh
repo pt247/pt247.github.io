@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf *.html author categor pages pdfs theme output/*
 fab build 
 fab serve
 cp -r output/* . 
