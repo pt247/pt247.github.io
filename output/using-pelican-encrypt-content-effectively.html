@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Life as a creation of ones own prospective</title>
+        <title>Using Pelican encrypt content effectively</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -14,8 +14,8 @@
         <header id="banner" class="body">
                 <h1><a href="/">Blogs and thoughts. </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="/category/about.html">About</a></li>
-                    <li><a href="/category/blogs.html">Blogs</a></li>
+                    <li><a href="/category/about.html">About</a></li>
+                    <li class="active"><a href="/category/blogs.html">Blogs</a></li>
                     <li><a href="/category/review.html">Review</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -23,8 +23,8 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/life-as-a-creation-of-ones-own-prospective.html" rel="bookmark"
-           title="Permalink to Life as a creation of ones own prospective">Life as a creation of ones own prospective</a></h1>
+        <a href="/using-pelican-encrypt-content-effectively.html" rel="bookmark"
+           title="Permalink to Using Pelican encrypt content effectively">Using Pelican encrypt content effectively</a></h1>
     </header>
 
     <div class="entry-content">
@@ -36,20 +36,22 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
         </address>
-<p>In <a href="/category/about.html">About</a>.</p>
+<p>In <a href="/category/blogs.html">Blogs</a>.</p>
 
-</footer><!-- /.post-info -->      <h1>Self</h1>
-<p>Prashant is a Python developer who is still learning something new about Python every day. 
-In his day job he saves the world be helping a Green-tech startup develop IOT solution for smart battery storage solution.</p>
-<h1>Meetup</h1>
-<p><a href="https://www.meetup.com/PyData-London-Meetup/">PyData London meetup</a> has been Prashant's primary goto meetup for a while now. 
-Its all about building data science community in and arround London. Quite popular and seats about 200 people every month. Its like a mini confrence every month. </p>
-<h1>Social:</h1>
-<ul>
-<li>Follow me at: @tintin5us for latest Python related tweets. </li>
-<li>Email me at: prashanttiwari247@gmail.com for a private message.</li>
-<li>Skype me at: prashanttiwari247 for a quick chat.</li>
-</ul>
+</footer><!-- /.post-info -->      <h1>About</h1>
+<p><a href="https://github.com/mindcruzer/pelican-encrypt-content">pelican-encrypt-content</a> is a plugin for <a href="http://docs.getpelican.com/en/stable/">Pelican</a> that allows you to encrypt certain files. </p>
+<h1>Issues</h1>
+<p>Now although the file is password protected and encrypted at the client end. But if you are sharing it using github pages you will still have to upload your content source file unencrypted on a publically available website. And github repo also has password written in plain text making it pointless to use encryption.</p>
+<h1>Simple Hack</h1>
+<ol>
+<li>Agree that your files that you don't want to share publically will be named in a certain way and ignore them. For example:
+    <code>(venv) Prashants-MBP:pt247.github.io prashant$ tail -1 .gitignore
+    *in-progress.md
+    (venv) Prashants-MBP:pt247.github.io prashant$</code></li>
+<li>Name file in content that ends with <code>in-progress.md</code> and it will be ignored however encrypted content will be added to output.</li>
+<li>Once you are happy with the second pair of eyes or want to open up to public, just remove <code>in-progress</code> text from the name and remove password/encription from your markdown or rst file. </li>
+</ol>
+<p>Note: Keep in mind you might want to delete your output periodically because it will have old renamed files as well. More about that in another blog.</p>
     </div><!-- /.entry-content -->
 
   </article>

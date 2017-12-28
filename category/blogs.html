@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Blogs and thoughts.</title>
+        <title>Blogs and thoughts. - Blogs</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -15,15 +15,39 @@
                 <h1><a href="/">Blogs and thoughts. </a></h1>
                 <nav><ul>
                     <li><a href="/category/about.html">About</a></li>
-                    <li><a href="/category/blogs.html">Blogs</a></li>
+                    <li class="active"><a href="/category/blogs.html">Blogs</a></li>
                     <li><a href="/category/review.html">Review</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<ul>
-    <li><a href="/category/about.html">About</a></li>
-    <li><a href="/category/blogs.html">Blogs</a></li>
-    <li><a href="/category/review.html">Review</a></li>
-</ul>
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/using-pelican-encrypt-content-effectively.html">Using Pelican encrypt content effectively</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-12-27T21:00:00+01:00">
+                Published: Wed 27 December 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
+        </address>
+<p>In <a href="/category/blogs.html">Blogs</a>.</p>
+
+</footer><!-- /.post-info --><h1>About</h1>
+<p><a href="https://github.com/mindcruzer/pelican-encrypt-content">pelican-encrypt-content</a> is a plugin for <a href="http://docs.getpelican.com/en/stable/">Pelican</a> that allows you to encrypt certain files. </p>
+<h1>Issues</h1>
+<p>Now although the file is password protected and encrypted at the client end. But if you are sharing it using github pages you will still have to upload your content source file unencrypted on a publically available website. And github repo also has password written in plain text making it pointless to use encryption.</p>
+<h1>Simple Hack</h1>
+<ol>
+<li>Agree that your files that you don't want to share publically will be named in a certain way and ignore them. For example:
+    <code>(venv) Prashants-MBP:pt247.github.io prashant$ tail -1 .gitignore
+    *in-progress.md
+    (venv) Prashants-MBP:pt247.github.io prashant$</code></li>
+<li>Name file in content that ends with <code>in-progress.md</code> and it will be ignored however encrypted content will be added to output.</li>
+<li>Once you are happy with the second pair of eyes or want to open up to public, just remove <code>in-progress</code> text from the name and remove password/encription from your markdown or rst file. </li>
+</ol>
+<p>Note: Keep in mind you might want to delete your output periodically because it will have old renamed files as well. More about that in another blog.</p>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
