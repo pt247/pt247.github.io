@@ -1,6 +1,7 @@
-Title: My First Review - extended.
-Date: 2017-12-03 10:20
+Title: On going article.
+Date: 2017-12-28 09:20
 Category: Review
+Password: correcthorsebatterystaple
 
 # Followin is a review of my sixth favorite mechanical keyboard.
 
