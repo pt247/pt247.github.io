@@ -1,3 +1,2 @@
 Title: CV 
-Category: CV 
-[Resume]({filename}/pdfs/PrashantTiwariResume.pdf)
+[Resume]({filename}../pdfs/PrashantTiwariResume.pdf)
