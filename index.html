@@ -22,44 +22,9 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/life-as-a-creation-of-ones-own-prospective.html">Life as a creation of ones own prospective</a></h1>
+                    <h1 class="entry-title"><a href="/machine-learning-basics.html">[Encrypted] Machine learning basics</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-12-28T11:39:39.843676+01:00">
-                Published: Thu 28 December 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
-        </address>
-<p>In <a href="/category/about.html">About</a>.</p>
-
-</footer><!-- /.post-info --><h1>Self</h1>
-<p>Prashant is a Python developer who is still learning something new about Python every day. 
-In his day job he saves the world be helping a Green-tech startup develop IOT solution for smart battery storage solution.</p>
-<h1>Meetup</h1>
-<p><a href="https://www.meetup.com/PyData-London-Meetup/">PyData London meetup</a> has been Prashant's primary goto meetup for a while now. 
-Its all about building data science community in and arround London. Quite popular and seats about 200 people every month. Its like a mini confrence every month. </p>
-<h1>Social:</h1>
-<ul>
-<li>Follow me at: @tintin5us for latest Python related tweets. </li>
-<li>Email me at: prashanttiwari247@gmail.com for a private message.</li>
-<li>Skype me at: prashanttiwari247 for a quick chat.</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/machine-learning-basics.html" rel="bookmark"
-                           title="Permalink to [Encrypted] Machine learning basics">[Encrypted] Machine learning basics</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-28T09:20:00+01:00">
+        <abbr class="published" title="2017-12-28T11:44:19.693135+01:00">
                 Published: Thu 28 December 2017
         </abbr>
 
@@ -68,10 +33,110 @@ Its all about building data science community in and arround London. Quite popul
         </address>
 <p>In <a href="/category/review.html">Review</a>.</p>
 
-</footer><!-- /.post-info -->                This content is encrypted.
-                <a class="readmore" href="/machine-learning-basics.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+</footer><!-- /.post-info --><div id="pec-encrypted-content" style="display:none">nfSKSutWB4D3wAn7ydopyA==;9ZntRZyq98pCt9oSiaHTHe5MO5wmC9gW2ezwXJLYAu+krF//hCiCQSh8z358pkCMVcQVH/oIIjOoaJs9toFBFrYI/RIVAsm2Mrx7EbyhATP5Huu/ENPjTrKo9Rz3B6tGZXPVX/RKzfFMkNFD7IMWdjeysq0Uy84/LJkRcYmUIy5HRKsucQsoNVuK8RlX/IgnLwaz5fH3Hp2I2cK2giDMvM6qSMfgqsMDSDa31CVYdeFjPLEh/Ba4AAXbUvEpkFn8ODHi3s76wySbDxGilDAqIjftX0d6l1KYRdF/iZsQf1bwgZfbPBwp7DBDy6P2YpqQvkMdqe++SvPcgc1LQWc7RNOEc4dA/Gif4oEr9wWkvRk0K0y+FzSm2hmBw8tH70BGhkvJt3lg+OhGTy0BXbJeBBqtXepGQ0VOp0f0YSz21asZyFVcBzLYPFvcPoBPpW4XvNfBvAWTiJ/wENEkGSvexQ==;^</div>
+<div id="pec-decrypted-content">
+    <h4><i>This content is encrypted.</i></h4>
+</div>
+
+<form id="pec-decrypt-form">
+    <label for="pec-content-password">Password</label>
+    <input type="password" id="pec-content-password" placeholder="Password" />
+    <button type="button" id="pec-decrypt-content">Decrypt</button>
+</form>
+
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/pad-nopadding.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/md5.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes.js"></script>
+
+
+<script type="text/javascript">
+    (function () {
+        var strip_padding = function (padded_content, padding_char) {
+            /*
+             * Strips the padding character from decrypted content.
+             */
+            for (var i = padded_content.length; i > 0; i--) {
+                if (padded_content[i-1] !== padding_char) {
+                    return padded_content.slice(0, i);
+                }
+            }
+        };
+
+        var decrypt_content = function (password, iv_b64, ciphertext_b64, padding_char) {
+            /*
+             * Decrypts the content from the ciphertext bundle.
+             */
+            var key = CryptoJS.MD5(password),
+                iv = CryptoJS.enc.Base64.parse(iv_b64),
+                ciphertext = CryptoJS.enc.Base64.parse(ciphertext_b64),
+                bundle = {
+                    key: key,
+                    iv: iv,
+                    ciphertext: ciphertext
+                };
+
+            var plaintext = CryptoJS.AES.decrypt(bundle, key, {iv: iv, padding: CryptoJS.pad.NoPadding});
+
+            try {
+                return strip_padding(plaintext.toString(CryptoJS.enc.Utf8), padding_char);
+            }
+            catch (err) {
+                // encoding failed; wrong password
+                return false;
+            }
+        };
+
+        var init_decryptor = function() {
+            var decrypt_btn = document.getElementById('pec-decrypt-content'),
+                password_input = document.getElementById('pec-content-password'),
+                encrypted_content = document.getElementById('pec-encrypted-content'),
+                decrypted_content = document.getElementById('pec-decrypted-content'),
+                decrypt_form = document.getElementById('pec-decrypt-form');
+
+            decrypt_btn.addEventListener('click', function () {
+                // grab the ciphertext bundle
+                var parts = encrypted_content.innerHTML.split(';');
+
+                // decrypt it
+                var content = decrypt_content(
+                    password_input.value,
+                    parts[0],
+                    parts[1],
+                    parts[2]
+                );
+
+                if (content) {
+                    // success; display the decrypted content
+                    decrypted_content.innerHTML = content;
+                    decrypt_form.parentNode.removeChild(decrypt_form);
+                    encrypted_content.parentNode.removeChild(encrypted_content);
+
+                    // any post processing on the decrypted content should be done here
+                }
+                else {
+                    // ¯\_(ツ)_/¯
+                    password_input.value = '';
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', init_decryptor);
+    })();
+</script>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
 
             <li><article class="hentry">
                 <header>
@@ -81,8 +146,8 @@ Its all about building data science community in and arround London. Quite popul
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-12-27T21:00:00+01:00">
-                Published: Wed 27 December 2017
+        <abbr class="published" title="2017-12-28T11:43:58.748199+01:00">
+                Published: Thu 28 December 2017
         </abbr>
 
         <address class="vcard author">
@@ -95,6 +160,32 @@ Its all about building data science community in and arround London. Quite popul
 <h1>Issues</h1>
 <p>Now although the file is password protected and encrypted at the client end. But if you are sharing it using github pages you will still have to upload your content source file unencrypted on a …</p>
                 <a class="readmore" href="/using-pelican-encrypt-content-effectively-with-githubpages.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/life-as-a-creation-of-ones-own-prospective.html" rel="bookmark"
+                           title="Permalink to Life as a creation of ones own prospective">Life as a creation of ones own prospective</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-12-28T11:39:39.843676+01:00">
+                Published: Thu 28 December 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
+        </address>
+<p>In <a href="/category/about.html">About</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>Self</h1>
+<p>Prashant is a Python developer who is still learning something new about Python every day. 
+In his day job he saves the world be helping a Green-tech startup develop IOT solution for smart battery storage solution.</p>
+<h1>Meetup</h1>
+<p><a href="https://www.meetup.com/PyData-London-Meetup/">PyData London meetup</a> has been Prashant's primary goto meetup for a while …</p>
+                <a class="readmore" href="/life-as-a-creation-of-ones-own-prospective.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
