@@ -23,7 +23,129 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/using-pelican-encrypt-content-effectively-with-githubpages.html">Using Pelican encrypt content effectively with GitHubPages</a></h1>
+                    <h1 class="entry-title"><a href="/ml-101.html">[Encrypted] ML-101</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-12-29T13:06:05.696825+01:00">
+                Published: Fri 29 December 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
+        </address>
+<p>In <a href="/category/upcoming.html">Upcoming</a>.</p>
+
+</footer><!-- /.post-info --><div id="pec-encrypted-content" style="display:none">ykI5iDfSbLKcN05LXn98Ag==;AXHlhyRuh/sO37jG9sedAnyRvbWoPDrsl2LT/TIN8N/Z+YWfU4H6q8FP/OEOoKt+uoqL/ah5c/h4Fs5eZDyrMuyVGiha0QiCGP6sfnh3W0Ao5Mk4ai0ZtIFnuFO/OB/5;^</div>
+<div id="pec-decrypted-content">
+    <h4><i>This content is encrypted.</i></h4>
+</div>
+
+<form id="pec-decrypt-form">
+    <label for="pec-content-password">Password</label>
+    <input type="password" id="pec-content-password" placeholder="Password" />
+    <button type="button" id="pec-decrypt-content">Decrypt</button>
+</form>
+
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/pad-nopadding.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/md5.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes.js"></script>
+
+
+<script type="text/javascript">
+    (function () {
+        var strip_padding = function (padded_content, padding_char) {
+            /*
+             * Strips the padding character from decrypted content.
+             */
+            for (var i = padded_content.length; i > 0; i--) {
+                if (padded_content[i-1] !== padding_char) {
+                    return padded_content.slice(0, i);
+                }
+            }
+        };
+
+        var decrypt_content = function (password, iv_b64, ciphertext_b64, padding_char) {
+            /*
+             * Decrypts the content from the ciphertext bundle.
+             */
+            var key = CryptoJS.MD5(password),
+                iv = CryptoJS.enc.Base64.parse(iv_b64),
+                ciphertext = CryptoJS.enc.Base64.parse(ciphertext_b64),
+                bundle = {
+                    key: key,
+                    iv: iv,
+                    ciphertext: ciphertext
+                };
+
+            var plaintext = CryptoJS.AES.decrypt(bundle, key, {iv: iv, padding: CryptoJS.pad.NoPadding});
+
+            try {
+                return strip_padding(plaintext.toString(CryptoJS.enc.Utf8), padding_char);
+            }
+            catch (err) {
+                // encoding failed; wrong password
+                return false;
+            }
+        };
+
+        var init_decryptor = function() {
+            var decrypt_btn = document.getElementById('pec-decrypt-content'),
+                password_input = document.getElementById('pec-content-password'),
+                encrypted_content = document.getElementById('pec-encrypted-content'),
+                decrypted_content = document.getElementById('pec-decrypted-content'),
+                decrypt_form = document.getElementById('pec-decrypt-form');
+
+            decrypt_btn.addEventListener('click', function () {
+                // grab the ciphertext bundle
+                var parts = encrypted_content.innerHTML.split(';');
+
+                // decrypt it
+                var content = decrypt_content(
+                    password_input.value,
+                    parts[0],
+                    parts[1],
+                    parts[2]
+                );
+
+                if (content) {
+                    // success; display the decrypted content
+                    decrypted_content.innerHTML = content;
+                    decrypt_form.parentNode.removeChild(decrypt_form);
+                    encrypted_content.parentNode.removeChild(encrypted_content);
+
+                    // any post processing on the decrypted content should be done here
+                }
+                else {
+                    // ¯\_(ツ)_/¯
+                    password_input.value = '';
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', init_decryptor);
+    })();
+</script>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/using-pelican-encrypt-content-effectively-with-githubpages.html" rel="bookmark"
+                           title="Permalink to Using Pelican encrypt content effectively with GitHubPages">Using Pelican encrypt content effectively with GitHubPages</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-12-28T17:34:14.377687+01:00">
                 Published: Thu 28 December 2017
@@ -34,54 +156,11 @@
         </address>
 <p>In <a href="/category/blogs.html">Blogs</a>.</p>
 
-</footer><!-- /.post-info --><h1>About</h1>
+</footer><!-- /.post-info -->                <h1>About</h1>
 <p><a href="https://github.com/mindcruzer/pelican-encrypt-content">pelican-encrypt-content</a> is a plugin for <a href="http://docs.getpelican.com/en/stable/">Pelican</a> that allows you to encrypt certain files. </p>
 <h1>Issues</h1>
-<p>Now although the file is password protected and encrypted at the client end. But if you are sharing it using github pages you will still have to upload your content source file unencrypted on a publically available website. And github repo also has password written in plain text making it pointless to use encryption.</p>
-<h1>Simple Hack</h1>
-<ol>
-<li>Agree that your files that you don't want to share publically will be named in a certain way and ignore them. For example:</li>
-</ol>
-<div class="highlight"><pre><span></span>    (venv) Prashants-MBP:pt247.github.io prashant$ tail -1 .gitignore
-    *in-progress.md
-    (venv) Prashants-MBP:pt247.github.io prashant$ 
-</pre></div>
-
-
-<ol>
-<li>
-<p>Name file in content that ends with <code>in-progress.md</code> and it will be ignored however encrypted content will be added to output.</p>
-</li>
-<li>
-<p>Once you are happy with the second pair of eyes or want to open up to public, just remove <code>in-progress</code> text from the name and remove password/encription from your markdown or rst file. </p>
-<p>Note: Keep in mind you might want to delete your output periodically because it will have old renamed files as well. More about that in another blog.</p>
-</li>
-</ol>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/ml-101.html" rel="bookmark"
-                           title="Permalink to [Encrypted] ML-101">[Encrypted] ML-101</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-12-28T17:10:53.405611+01:00">
-                Published: Thu 28 December 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/prashant-tiwari.html">Prashant Tiwari</a>
-        </address>
-<p>In <a href="/category/upcoming.html">Upcoming</a>.</p>
-
-</footer><!-- /.post-info -->                This content is encrypted.
-                <a class="readmore" href="/ml-101.html">read more</a>
+<p>Now although the file is password protected and encrypted at the client end. But if you are sharing it using github pages you will still have to upload your content source file unencrypted on a …</p>
+                <a class="readmore" href="/using-pelican-encrypt-content-effectively-with-githubpages.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
