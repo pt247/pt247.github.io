@@ -39,7 +39,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-PLUGINS = ['encrypt_content']
+PLUGINS = ['encrypt_content', 'pelican_alias']
 
 ENCRYPT_CONTENT = {
     'title_prefix': '[Encrypted]',
