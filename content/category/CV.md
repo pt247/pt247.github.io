@@ -1,4 +1,4 @@
-Title: Curriculum Vitae
+Title: CV 
 Category: CV 
 <object data="{filename}../pdfs/PrashantTiwariResume.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="{filename}../pdfs/PrashantTiwariResume.pdf">
