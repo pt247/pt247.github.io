@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="991f35a0-4b60-4c33-afa5-bd12008672e5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content/category/CV.md" afterPath="$PROJECT_DIR$/content/category/CV.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/author/prashant-tiwari.html" afterPath="$PROJECT_DIR$/output/author/prashant-tiwari.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/category/cv.html" afterPath="$PROJECT_DIR$/output/category/cv.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/category/upcoming.html" afterPath="$PROJECT_DIR$/output/category/upcoming.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/curriculum-vitae.html" afterPath="$PROJECT_DIR$/output/curriculum-vitae.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/ml-101.html" afterPath="$PROJECT_DIR$/output/ml-101.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pelicanconf.py" afterPath="$PROJECT_DIR$/pelicanconf.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +37,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="192">
-                <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -83,8 +87,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="737" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="95" />
     <option name="y" value="23" />
     <option name="width" value="943" />
     <option name="height" value="977" />
@@ -254,10 +258,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="737" y="23" width="943" height="977" extended-state="1" />
-    <editor active="true" />
+    <frame x="95" y="23" width="943" height="977" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28266332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.281909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -304,7 +307,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="192">
-            <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
