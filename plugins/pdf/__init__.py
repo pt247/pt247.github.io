@@ -27,7 +27,6 @@ def generate_pdf(p):
             f.write(contents)
         print(CMD.format(fn=fn))
         os.system(CMD.format(fn=fn))
-        import pdb; pdb.set_trace()
         print("Generating PrashantTiwariResume.pdf ... Done.")
 
 
