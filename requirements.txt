@@ -1,4 +1,4 @@
-Fabric3==1.13.1.post1
-pelican==3.7.1
-Markdown==2.6.10
-pycrypto==2.6.1
+# Fabric3==1.13.1.post1
+pelican==4.9.1
+Markdown==3.5.1
+# pycrypto==2.6.1
